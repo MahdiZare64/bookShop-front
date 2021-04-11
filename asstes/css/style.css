@@ -557,6 +557,43 @@ nav > ul > li:hover .first-list {
   border-radius: 0 !important;
 }
 
+.breadcrumb {
+  width: 100%;
+  height: 18em;
+  background: url("../img/bgparallax.jpg");
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.breadcrumb .title {
+  font-size: 5rem;
+}
+
+.breadcrumb .breadcrumb-main {
+  background-color: green;
+  color: #fff;
+  padding: 5px 15px;
+}
+.breadcrumb .breadcrumb-main a {
+  font-family: "Yekan","Font Awesome 5 Pro";
+  position: relative;
+  margin-left: 15px;
+  transition: all 0.2s ease-in;
+  color: rgb(240, 240, 240);
+}
+.breadcrumb .breadcrumb-main a::before {
+  content: "\f053";
+  position: absolute;
+  left: -12px;
+  top: 5px;
+  font-size: 12px;
+}
+
+.breadcrumb .breadcrumb-main a:hover {
+  color: rgb(226, 226, 226);
+}
+
 @media only screen and (max-width: 1200px) {
   .logo {
     max-width: 180px;
