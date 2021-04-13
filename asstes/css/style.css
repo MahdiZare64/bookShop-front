@@ -33,9 +33,10 @@ ul {
 a {
   color: unset;
   text-decoration: none !important;
+  transition: all 0.2s ease-in;
 }
 a:hover {
-  color: #000;
+  color: rgb(48, 48, 48);
 }
 
 header {
@@ -766,6 +767,35 @@ aside .side-books img:hover {
 }
 .add-comment small {
   font-size: 0.9rem;
+}
+
+.archive-blog{
+margin-bottom: 100px;
+}
+.archive-blog-box {
+  padding: 15px;
+  background: #f3f3f3;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.178);
+}
+.archive-blog-box img {
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease-in;
+}
+
+.archive-blog-box img:hover {
+  box-shadow: 5px 5px 15px rgba(78, 78, 78, 0.74);
+
+}
+.archive-blog-box .archive-blog-category{
+  font-size: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.archive-blog-text a{
+  color: #55acee;
 }
 
 @media only screen and (max-width: 1200px) {
