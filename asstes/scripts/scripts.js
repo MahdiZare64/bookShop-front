@@ -37,13 +37,35 @@ $(document).ready(function () {
     $("#side-category-btn").removeClass("active");
     $(this).addClass("active");
   });
-});
 
-$(".ads-slider").owlCarousel({
-  items: 1,
-  loop: true,
-  autoplay: true,
-  autoplayTimeout: 5000,
-  rtl: true,
-  nav: true,
+  $(".ads-slider").owlCarousel({
+    items: 1,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    rtl: true,
+    nav: true,
+  });
+
+  $(".number-input").on("input", function () {
+    $(this).val($(this).val().replace(/[^\d]/, ""));
+  });
+
+  if ($("#timer").length) {
+    const counter = setInterval(function () {
+      const sec = Number($("#second-counter").text());
+      if (sec === 0) {
+        $("#second-counter").text(59);
+        const min = Number($("#minute-counter").text());
+        $("#minute-counter").text(min - 1);
+
+        if (min === 0) {
+          $("#timer").css("display", "none");
+          $("#resend-code").css("display", "block")
+        }
+      } else {
+        $("#second-counter").text(sec - 1);
+      }
+    }, 1000);
+  }
 });
