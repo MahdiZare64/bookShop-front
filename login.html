@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="asstes/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="asstes/css/owl.carousel.min.css">
     <link rel="stylesheet" href="asstes/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="asstes/css/toastr.min.css">
     <link rel="stylesheet" href="asstes/css/style.css">
 </head>
 
-<body>
+<body>  
     <!-- header -->
     <header>
         <div class="container">
@@ -127,10 +128,10 @@
 
                                 <div class="custom-form">
 
-                                    <form>
+                                    <form class="check-form">
                                         <div class="form-group">
                                             <label for="phone-input">رمز عبور خود را وارد کنید</label>
-                                            <input type="text" class="form-control number-input" id="phone-input"
+                                            <input type="text" class="form-control number-input phone-number" id="phone-input"
                                                 maxlength="11" placeholder="رمز عبور">
                                         </div>
                                         <button type="submit" class="btn btn-success">ورود</button>
@@ -138,9 +139,9 @@
                                     <p class="resend-txt"></p>
 
                                     <p class="reg-txt" id="timer">برای دریات مجدد رمزعبور
-                                        <span id="minute-counter">0</span>
+                                        <span id="minute-counter">1</span>
                                         دقیقه و
-                                        <span id="second-counter">5</span>
+                                        <span id="second-counter">30</span>
                                         ثانیه صبر کنید</p>
 
                                     <p class="reg-txt" style="display: none;" id="resend-code">برای دریافت مجدد رمزعبور
@@ -455,6 +456,7 @@
     <script src="asstes/scripts/jquery.min.js"></script>
     <script src="asstes/scripts/bootstrap.min.js"></script>
     <script src="asstes/scripts/owl.carousel.min.js"></script>
+    <script src="asstes/scripts/toastr.min.js"></script>
     <script src="asstes/scripts/scripts.js"></script>
 </body>
 

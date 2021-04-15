@@ -1,4 +1,11 @@
 $(document).ready(function () {
+  toastr.options = {
+    closeButton: true,
+    preventDuplicates: true,
+    progressBar: true,
+    rtl: true,
+  };
+
   function toggleSidebar(selector) {
     $(".sidebar-bg").toggleClass("activate");
     $(selector).toggleClass("activate");
@@ -61,11 +68,35 @@ $(document).ready(function () {
 
         if (min === 0) {
           $("#timer").css("display", "none");
-          $("#resend-code").css("display", "block")
+          $("#resend-code").css("display", "block");
         }
       } else {
         $("#second-counter").text(sec - 1);
       }
     }, 1000);
   }
+
+  $(".check-form").submit(function (e) {
+    let isValid = true;
+    let validationMessage = "";
+
+    $(this)
+      .find("input")
+      .each(function () {
+        const value = $(this).val();
+
+        if ($(this).hasClass("phone-number")) {
+          const re = /^[0]?9\d{9}$/g;
+          if (!re.test(value)) {
+            isValid = false;
+            validationMessage = "لطفا شماره تلفن خود را به درستی وارد کنید !";
+          }
+        }
+      });
+
+    if (!isValid) {
+      e.preventDefault();
+      toastr.error(validationMessage);
+    }
+  });
 });
