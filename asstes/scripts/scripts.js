@@ -91,6 +91,11 @@ $(document).ready(function () {
             isValid = false;
             validationMessage = "لطفا شماره تلفن خود را به درستی وارد کنید !";
           }
+        } else if ($(this).hasClass("code-input")) {
+          if (value.length !== 5) {
+            isValid = false;
+            validationMessage = "لطفا رمز عبور خود را به درستی وارد کنید.";
+          }
         }
       });
 
