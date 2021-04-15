@@ -104,4 +104,25 @@ $(document).ready(function () {
       toastr.error(validationMessage);
     }
   });
+
+  $(".counter-wrapper input").change(function () {
+    if ($(this).val() < 1) {
+      $(this).val(1);
+    }
+  });
+  $(".counter-wrapper .plus").click(function () {
+    const inp = $(this).parent().children("input");
+    const value = $(inp).val();
+    $(inp).val(Number(value) + 1);
+  });
+  $(".counter-wrapper .minus").click(function () {
+    const inp = $(this).parent().children("input");
+    const value = $(inp).val();
+    if (Number(value) > 1) {
+      $(this)
+        .parent()
+        .children("input")
+        .val(Number(value) - 1);
+    }
+  });
 });

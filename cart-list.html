@@ -104,7 +104,121 @@
     </nav>
     <!-- header end -->
 
-    <main></main>
+    <main>
+        <div class="container">
+            <table class="cart-table my-5">
+                <thead>
+                    <tr>
+                        <th class="close-wrapper">&nbsp;</th>
+                        <th class="img-wrapper">&nbsp;</th>
+                        <th>محصول</th>
+                        <th>قیمت</th>
+                        <th>تعداد</th>
+                        <th>مجموع</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="close-wrapper"><span class="remove-cart-item"><i class="far"></i></span></td>
+                        <td class="img-wrapper"><img src="asstes/img/book1.jpg" alt=""></td>
+                        <td>اسم کتاب</td>
+                        <td class="text-muted">
+                            <span class="d-iniline d-md-none">قیمت: </span>
+                            750000 تومان
+
+                        </td>
+                        <td>
+                            <span class="d-iniline d-md-none">تعداد: </span>
+
+                            <div class="counter-wrapper">
+                                <button class="minus"> - </button>
+                                <input type="number" value="1" class="custom-input">
+                                <button class="plus"> + </button>
+                            </div>
+                        </td>
+                        <td class="text-success">
+                            <span class="d-iniline d-md-none">مجموع: </span>
+                            75000 تومان
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="cart-seperator">
+                <i class="fas fa-check"></i> جزئیات خرید
+            </div>
+            <form action="">
+                <div class="row">
+
+                    <div class="col-12 col-md-6">
+                        <h3 class="mt-3">جزئیات آدرس</h3>
+                        <h5 class="mb-4">لطفا مشخصات گیرنده را وارد کنید.</h5>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="name-input">نام گیرنده</label>
+                                    <input type="text" class="custom-input" id="name-input" placeholder="نام">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="last-name-input">نام خانوادگی گیرنده</label>
+                                    <input type="text" class="custom-input" id="last-name-input"
+                                        placeholder="نام خانوادگی">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="test-input">تست</label>
+                                    <input type="text" class="custom-input" id="test-input" placeholder="تست">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="test-input">تست 2</label>
+                                    <textarea name="" id="" rows="5" class="custom-textarea">تست 2</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="checkout-card px-3">
+                            <h5 class="text-center pt-4">سفارش شما</h5>
+
+                            <div class="checkout-main">
+                                <div>
+                                    <h3>کالا</h3>
+                                    <h3>قیمت</h3>
+                                </div>
+                                <div>
+                                    <span>نام کتاب x تعداد</span>
+                                    <span>قیمت تومان</span>
+                                </div>
+                                <div>
+                                    <span>نام کتاب x تعداد</span>
+                                    <span>قیمت تومان</span>
+                                </div>
+                                <div>
+                                    <span>نام کتاب x تعداد</span>
+                                    <span>قیمت تومان</span>
+                                </div>
+
+                                <div>
+                                    <span class="text-dark h5">مجموع</span>
+                                    <span class="text-success h5">999999 تومان</span>
+                                </div>
+                            </div>
+                            <hr>
+                            <button type="button" class="btn btn-success btn-block">ثبت سفارش</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
 
     <div class="sidebar-bg close-sidebar"></div>
 
