@@ -1018,6 +1018,27 @@ aside .side-books img:hover {
   margin-bottom: 0;
 }
 
+.error-container img{
+  width: 60%;
+}
+.error-container form{
+  max-width: 40%;
+}
+
+.error-container h1{
+  position: relative;
+}
+.error-container h1::after{
+  content: '404';
+  position: absolute;
+  left: 50%;
+  top: -60px;
+  color: #f4f4f4;
+  font-size: 10rem;
+  z-index: -1;
+  transform: translateX(-50%);
+}
+
 @media only screen and (max-width: 1200px) {
   .logo {
     max-width: 180px;
@@ -1027,6 +1048,13 @@ aside .side-books img:hover {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
+  }
+
+  .error-container img{
+    width: 80%;
+  }
+  .error-container form{
+    max-width: 50%;
   }
 }
 @media only screen and (max-width: 720px) {
@@ -1069,5 +1097,12 @@ aside .side-books img:hover {
     height: 40px;
     width: 40px;
     border-bottom: none;
+  }
+
+  .error-container img{
+    width: 90%;
+  }
+  .error-container form{
+    max-width: 60%;
   }
 }
