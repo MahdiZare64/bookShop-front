@@ -7,7 +7,7 @@ $(document).ready(function () {
   };
 
   $(function () {
-    updateCartItems()
+    updateCartItems();
   });
 
   function toggleSidebar(selector) {
@@ -108,15 +108,28 @@ $(document).ready(function () {
       toastr.error(validationMessage);
     }
   });
+
+  function changePrice(inp) {
+    const priceDiv = $(inp).parents("tr").find("#price-holder");
+    const price = Number($(priceDiv).attr("data-price"));
+    const count = Number($(inp).val());
+    $(priceDiv).text(price * count);
+
+    $("#update-cart").removeClass("disabled");
+  }
+
   $(".counter-wrapper input").change(function () {
     if ($(this).val() < 1) {
       $(this).val(1);
     }
+    changePrice($(this));
   });
   $(".counter-wrapper .plus").click(function () {
     const inp = $(this).parent().children("input");
     const value = $(inp).val();
     $(inp).val(Number(value) + 1);
+
+    changePrice(inp);
   });
   $(".counter-wrapper .minus").click(function () {
     const inp = $(this).parent().children("input");
@@ -126,18 +139,16 @@ $(document).ready(function () {
         .parent()
         .children("input")
         .val(Number(value) - 1);
+
+      changePrice(inp);
     }
   });
-});
 
-
-
-function updateCartItems() {
-  $.ajax({
-    method: "GET",
-    url: "/carts/GetCartItems",
-  })
-    .done(function (res) {
+  function updateCartItems() {
+    $.ajax({
+      method: "GET",
+      url: "/carts/GetCartItems",
+    }).done(function (res) {
       $("#cart-body").empty();
       let count = 0;
       let price = 0;
@@ -167,54 +178,65 @@ function updateCartItems() {
         $(".price").html(price);
       });
     });
-}
-function ajaxUrl(url, data) {
-  $.ajax({
-    method: "POST",
-    url: url,
-    data: data
-  })
-    .done(function (res) {
+  }
+  function ajaxUrl(url, data) {
+    $.ajax({
+      method: "POST",
+      url: url,
+      data: data,
+    }).done(function (res) {
       if (res.isSuccess) {
         toastr.info(res.message);
       } else {
         toastr.error(res.message);
       }
 
-
       updateCartItems();
-
     });
-}
-function addToCart(id) {
-  var data = {
-    productId: id
+  }
+  function addToCart(id) {
+    var data = {
+      productId: id,
+    };
+
+    ajaxUrl("/carts/AddToCart", data);
+    setTimeout(function () {
+      updateCartItems();
+    }, 1500);
+  }
+  function UpdateCart(id) {
+    var data = {
+      productId: id,
+    };
+    ajaxUrl("/carts/AddToCart", data);
   }
 
-  ajaxUrl("/carts/AddToCart", data);
-  setTimeout(function () {
-    updateCartItems();
-  }, 1500);
-}
-function UpdateCart(id) {
-  var data = {
-    productId: id,
+  function removeCart(id, remove) {
+    var data = {
+      orderDetailId: id,
+    };
+    $(".sidebar-bg").removeClass("activate");
+    $(".sidebar").removeClass("activate");
+    ajaxUrl("/carts/removeCart", data);
+    if (remove) {
+      $(`#cart-item${id}`).remove();
+    }
   }
 
-  ajaxUrl("/carts/AddToCart", data);
-
-}
-
-function removeCart(id, remove) {
-  var data = {
-    orderDetailId: id
+  function updateCartList() {
+    let data = [];
+    $(".cart-table tbody tr").each(function () {
+      const count = $(this).find(".counter-wrapper input").val();
+      const productId = $(this).attr("data-id")
+      const item = {
+        count: count,
+        productId: productId,
+      };
+      data.push(item);
+    });
+    console.log(data);
+    $("#update-cart").addClass("disabled");
+    // ajaxUrl("", data);
   }
-  $(".sidebar-bg").removeClass("activate");
-  $(".sidebar").removeClass("activate");
-  ajaxUrl("/carts/removeCart", data);
-  if (remove) {
-    $(`#cart-item${id}`).remove();
-  }
-
-
-}
+  $("#update-cart").click(updateCartList);
+});

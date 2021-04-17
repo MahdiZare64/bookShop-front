@@ -118,7 +118,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr data-id="5">
                         <td class="close-wrapper"><span class="remove-cart-item"><i class="far"></i></span></td>
                         <td class="img-wrapper"><img src="asstes/img/book1.jpg" alt=""></td>
                         <td>اسم کتاب</td>
@@ -138,11 +138,14 @@
                         </td>
                         <td class="text-success">
                             <span class="d-iniline d-md-none">مجموع: </span>
-                            75000 تومان
+                            <span id="price-holder" data-price="7500">7500</span> تومان
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <div class="my-4 pl-3 text-left">
+                <button type="button" class="btn btn-success disabled" id="update-cart">بروزرسانی سبد خرید</button>
+            </div>
 
             <div class="cart-seperator">
                 <i class="fas fa-check"></i> جزئیات خرید
