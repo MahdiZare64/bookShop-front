@@ -6,6 +6,10 @@ $(document).ready(function () {
     rtl: true,
   };
 
+  $(function () {
+    updateCartItems()
+  });
+
   function toggleSidebar(selector) {
     $(".sidebar-bg").toggleClass("activate");
     $(selector).toggleClass("activate");
@@ -104,7 +108,6 @@ $(document).ready(function () {
       toastr.error(validationMessage);
     }
   });
-
   $(".counter-wrapper input").change(function () {
     if ($(this).val() < 1) {
       $(this).val(1);
@@ -126,3 +129,92 @@ $(document).ready(function () {
     }
   });
 });
+
+
+
+function updateCartItems() {
+  $.ajax({
+    method: "GET",
+    url: "/carts/GetCartItems",
+  })
+    .done(function (res) {
+      $("#cart-body").empty();
+      let count = 0;
+      let price = 0;
+      $(".counter").html(count);
+      $(".price").html(price);
+      $(res).each(function () {
+        const data = $(this)[0];
+        count += data.count;
+        price += data.price * data.count;
+        const item = `<a id="cart${data.id}" class="side-item row w-100">
+              <div href="#" class="col-4">
+                  <img src="/Media/Product/${data.imageSrc}" alt="">
+              </div>
+              <div class="col-8">
+                  <div class="side-cart-title mb-2">${data.title}</div>
+                  <div class="side-cart-peice text-success">
+                      <span class="side-cart-count text-muted">${data.count} &times; </span>
+                      ${data.price} تومان
+                  </div>
+              </div>
+              <span onclick="removeCart(${data.id})" class="side-cart-close">
+                  <i class="far fa-times"></i>
+              </span>
+          </a>`;
+        $("#cart-body").append(item);
+        $(".counter").html(count);
+        $(".price").html(price);
+      });
+    });
+}
+function ajaxUrl(url, data) {
+  $.ajax({
+    method: "POST",
+    url: url,
+    data: data
+  })
+    .done(function (res) {
+      if (res.isSuccess) {
+        toastr.info(res.message);
+      } else {
+        toastr.error(res.message);
+      }
+
+
+      updateCartItems();
+
+    });
+}
+function addToCart(id) {
+  var data = {
+    productId: id
+  }
+
+  ajaxUrl("/carts/AddToCart", data);
+  setTimeout(function () {
+    updateCartItems();
+  }, 1500);
+}
+function UpdateCart(id) {
+  var data = {
+    productId: id,
+  }
+
+  ajaxUrl("/carts/AddToCart", data);
+
+}
+
+function removeCart(id, remove) {
+  var data = {
+    orderDetailId: id
+  }
+  $(".sidebar-bg").removeClass("activate");
+  $(".sidebar").removeClass("activate");
+  ajaxUrl("/carts/removeCart", data);
+  if (remove) {
+    $(`#cart-item${id}`).remove();
+  }
+
+
+}
