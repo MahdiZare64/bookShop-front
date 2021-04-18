@@ -660,6 +660,10 @@ aside .side-category li > a:hover {
   color: rgb(48, 47, 47);
 }
 
+aside .side-category li > a.active {
+  background-color: #e8e8e8;
+}
+
 aside .side-books img {
   width: 100%;
   height: auto;
@@ -1061,9 +1065,33 @@ aside .side-books img:hover {
   box-shadow: 0 0 5px rgb(0, 0, 0, 0.17);
   cursor: pointer;
 }
-.discount-box button{
+.discount-box button {
   margin-top: 18px;
 }
+
+.dashboard-index-box {
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s ease-in;
+  padding: 15px;
+}
+.dashboard-index-box:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.18);
+}
+.dashboard-index-box i {
+  font-size: 5rem;
+  color: #d0d0d0;
+  transition: all 0.2s ease-in;
+  margin-bottom: 10px;
+}
+
+.dashboard-index-box:hover i{
+  color: #4dad3a;
+}
+
 @media only screen and (max-width: 1200px) {
   .logo {
     max-width: 180px;
@@ -1111,7 +1139,7 @@ aside .side-books img:hover {
     border-bottom: 1px solid rgb(212, 212, 212);
     text-align: left;
   }
-  .discount-box button{
+  .discount-box button {
     margin-top: 0;
   }
 }
