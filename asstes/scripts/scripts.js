@@ -127,18 +127,6 @@ $(document).ready(function () {
     $(priceDiv).text(final);
     $("#update-cart").removeClass("disabled");
 
-    let totalPrice = 0;
-    $(".cart-table tbody tr").each(function () {
-      const itemPrice = Number(
-        $(this).find("#price-holder").attr("data-price")
-      );
-      const itemCount = Number($(this).find(".counter-wrapper input").val());
-      totalPrice += itemPrice * itemCount;
-    });
-    console.log(totalPrice);
-    $("#total-price").text(
-      totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    );
   }
 
   $(".counter-wrapper input").change(function () {
@@ -258,8 +246,23 @@ $(document).ready(function () {
       data.push(item);
     });
     $("#update-cart").addClass("disabled");
-    console.log(data);
     ajaxUrl("", { data: data });
+
+    let totalPrice = 0;
+    $(".cart-table tbody tr").each(function () {
+      const itemPrice = Number(
+        $(this).find("#price-holder").attr("data-price")
+      );
+      const itemCount = Number($(this).find(".counter-wrapper input").val());
+      totalPrice += itemPrice * itemCount;
+
+      const itemId = $(this).attr("data-id")
+      $(`.checkout-main .book-item[data-id='${itemId}'] .book-count`).text(itemCount)
+    });
+    $("#total-price").text(
+      totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    );
+
   }
   $("#update-cart").click(updateCartList);
   $("#cart-form-btn").click(function () {
