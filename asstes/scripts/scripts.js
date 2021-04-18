@@ -125,8 +125,20 @@ $(document).ready(function () {
     let final = price * count;
     final = final.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     $(priceDiv).text(final);
-
     $("#update-cart").removeClass("disabled");
+
+    let totalPrice = 0;
+    $(".cart-table tbody tr").each(function () {
+      const itemPrice = Number(
+        $(this).find("#price-holder").attr("data-price")
+      );
+      const itemCount = Number($(this).find(".counter-wrapper input").val());
+      totalPrice += itemPrice * itemCount;
+    });
+    console.log(totalPrice);
+    $("#total-price").text(
+      totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    );
   }
 
   $(".counter-wrapper input").change(function () {
