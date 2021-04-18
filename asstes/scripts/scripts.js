@@ -262,4 +262,7 @@ $(document).ready(function () {
     ajaxUrl("", { data: data });
   }
   $("#update-cart").click(updateCartList);
+  $("#cart-form-btn").click(function () {
+    $("#cart-form").submit();
+  });
 });
