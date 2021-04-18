@@ -1159,8 +1159,3 @@ aside .side-books img:hover {
     max-width: 60%;
   }
 }
-
-#cart-toggle {
-  background-color: red !important;
-  padding: 10px;
-}
