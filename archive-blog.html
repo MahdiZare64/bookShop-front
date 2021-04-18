@@ -8,9 +8,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="asstes/css/bootstrap.min.css">
     <link rel="stylesheet" href="asstes/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="asstes/css/style.css">
     <link rel="stylesheet" href="asstes/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="asstes/css/toastr.min.css">
     <link rel="stylesheet" href="asstes/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="asstes/css/style.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                             ورود / عضویت
                         </a>
                     </div>
-                    <div class="header-link" id="cart-toggle">
+                    <div class="header-link cart-toggle">
                         <span style="position: relative;">
                             <i class="far fa-shopping-bag"></i>
                             <span class="counter">2</span>
@@ -94,7 +95,7 @@
             <li><a href="#">صفحه اصلی</a></li>
         </ul>
 
-        <div class="header-link d-block d-xl-none" id="cart-toggle">
+        <div class="header-link d-block d-xl-none cart-toggle">
             <span style="position: relative;">
                 <i class="far fa-shopping-bag"></i>
                 <span class="counter">2</span>
@@ -114,126 +115,129 @@
             </div>
         </div>
 
+        <div id="sidebar-button" class="d-lg-none"><i class="fas fa-ellipsis-h"></i></div>
         <div class="container-fluid row">
-
             <aside class="side-bar col-3">
-                <form class="search-bar w-100">
-                    <input type="text" class="w-100 custom-input" placeholder="جستجوی محصول">
-                    <button type="submit">
-                        <i class="far fa-search"></i>
-                    </button>
-                </form>
-                <div class="side-category mt-4">
-                    <p class="sidebar-title">دسته بندی ها</p>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                تخیلی
-                                <span class="float-left">2525</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                تخیلی
-                                <span class="float-left">2525</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                تخیلی
-                                <span class="float-left">2525</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                تخیلی
-                                <span class="float-left">2525</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <div class="close-sidebar d-block d-lg-none">بستن <i class="fas fa-times"></i> </div>
+                <div class="scroll-bar">
+                    <form class="search-bar w-100">
+                        <input type="text" class="w-100 custom-input" placeholder="جستجوی محصول">
+                        <button type="submit">
+                            <i class="far fa-search"></i>
+                        </button>
+                    </form>
+                    <div class="side-category mt-4">
+                        <p class="sidebar-title">دسته بندی ها</p>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    تخیلی
+                                    <span class="float-left">2525</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    تخیلی
+                                    <span class="float-left">2525</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    تخیلی
+                                    <span class="float-left">2525</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    تخیلی
+                                    <span class="float-left">2525</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
 
-                <div class="side-books mt-5">
-                    <p class="sidebar-title">محصولات با تخفیف ویژه</p>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img src="asstes/img/book1.jpg" alt="">
+                    <div class="side-books mt-5">
+                        <p class="sidebar-title">محصولات با تخفیف ویژه</p>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="asstes/img/book1.jpg" alt="">
+                                        </div>
+                                        <div class="col-8 text-wrapper">
+                                            <p class="book-title">the order of time</p>
+                                            <p class="book-author">
+                                                <span class="text-muted">
+                                                    توسط:
+                                                </span>
+                                                محمد اخلاقی
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col-8 text-wrapper">
-                                        <p class="book-title">the order of time</p>
-                                        <p class="book-author">
-                                            <span class="text-muted">
-                                                توسط:
-                                            </span>
-                                            محمد اخلاقی
-                                        </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="asstes/img/book1.jpg" alt="">
+                                        </div>
+                                        <div class="col-8 text-wrapper">
+                                            <p class="book-title">the order of time</p>
+                                            <p class="book-author">
+                                                <span class="text-muted">
+                                                    توسط:
+                                                </span>
+                                                محمد اخلاقی
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img src="asstes/img/book1.jpg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="asstes/img/book1.jpg" alt="">
+                                        </div>
+                                        <div class="col-8 text-wrapper">
+                                            <p class="book-title">the order of time</p>
+                                            <p class="book-author">
+                                                <span class="text-muted">
+                                                    توسط:
+                                                </span>
+                                                محمد اخلاقی
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="col-8 text-wrapper">
-                                        <p class="book-title">the order of time</p>
-                                        <p class="book-author">
-                                            <span class="text-muted">
-                                                توسط:
-                                            </span>
-                                            محمد اخلاقی
-                                        </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <img src="asstes/img/book1.jpg" alt="">
+                                        </div>
+                                        <div class="col-8 text-wrapper">
+                                            <p class="book-title">the order of time</p>
+                                            <p class="book-author">
+                                                <span class="text-muted">
+                                                    توسط:
+                                                </span>
+                                                محمد اخلاقی
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img src="asstes/img/book1.jpg" alt="">
-                                    </div>
-                                    <div class="col-8 text-wrapper">
-                                        <p class="book-title">the order of time</p>
-                                        <p class="book-author">
-                                            <span class="text-muted">
-                                                توسط:
-                                            </span>
-                                            محمد اخلاقی
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <img src="asstes/img/book1.jpg" alt="">
-                                    </div>
-                                    <div class="col-8 text-wrapper">
-                                        <p class="book-title">the order of time</p>
-                                        <p class="book-author">
-                                            <span class="text-muted">
-                                                توسط:
-                                            </span>
-                                            محمد اخلاقی
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </aside>
 
 
-            <div class="col-9">
+            <div class="col-12 col-lg-9">
                 <div class="ads-slider owl-carousel owl-theme ">
 
                     <div class="ad-slider-item item">
@@ -623,6 +627,7 @@
     <script src="asstes/scripts/jquery.min.js"></script>
     <script src="asstes/scripts/bootstrap.min.js"></script>
     <script src="asstes/scripts/owl.carousel.min.js"></script>
+    <script src="asstes/scripts/toastr.min.js"></script>
     <script src="asstes/scripts/scripts.js"></script>
 </body>
 
