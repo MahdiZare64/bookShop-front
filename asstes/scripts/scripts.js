@@ -113,7 +113,9 @@ $(document).ready(function () {
     const priceDiv = $(inp).parents("tr").find("#price-holder");
     const price = Number($(priceDiv).attr("data-price"));
     const count = Number($(inp).val());
-    $(priceDiv).text(price * count);
+    let final = price * count;
+    final = final.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    $(priceDiv).text(final);
 
     $("#update-cart").removeClass("disabled");
   }
@@ -227,7 +229,7 @@ $(document).ready(function () {
     let data = [];
     $(".cart-table tbody tr").each(function () {
       const count = $(this).find(".counter-wrapper input").val();
-      const productId = $(this).attr("data-id")
+      const productId = $(this).attr("data-id");
       const item = {
         count: count,
         productId: productId,
