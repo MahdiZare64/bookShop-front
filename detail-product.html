@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="asstes/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="asstes/css/style.css">
     <link rel="stylesheet" href="asstes/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="asstes/css/toastr.min.css">
     <link rel="stylesheet" href="asstes/css/owl.theme.default.min.css">
 </head>
 
@@ -233,7 +234,7 @@
             </aside>
 
 
-            <div class="col-9">
+            <div class="col-12 col-lg-9">
                 <div class="ads-slider owl-carousel owl-theme ">
 
                     <div class="ad-slider-item item">
@@ -248,12 +249,19 @@
 
                 <div class="row">
 
-                    <div class="col-3">
+                    <div class="col-lg-3 col-12 ">
                         <img src="asstes/img/book1.jpg" alt="" class="book-img mb-5">
-                        <div class="price h3 font-weight-bold">9999999 تومان</div>
+                        <div class="price h3 font-weight-bold text-success">9999999 تومان</div>
                         <del class="price-off h4 font-weight-bold text-muted">99999 تومان</del>
+                        <div class="counter-wrapper detail-counter mt-4">
+                            <button class="minus"> - </button>
+                            <input type="number" value="1" class="custom-input">
+                            <button class="plus"> + </button>
+                        </div>
+
+                        <button class="btn btn-outline-success btn-block mt-3">افزودن به سبد خرید</button>
                     </div>
-                    <div class="col-9">
+                    <div class="col-lg-9 col-12 ">
                         <div class="book-category">
                             <a href=""> دسته بندی کتاب </a> , <a href=""> دسته بندی کتاب 2 </a>
                         </div>
@@ -703,6 +711,7 @@
     <script src="asstes/scripts/jquery.min.js"></script>
     <script src="asstes/scripts/bootstrap.min.js"></script>
     <script src="asstes/scripts/owl.carousel.min.js"></script>
+    <script src="asstes/scripts/toastr.min.js"></script>
     <script src="asstes/scripts/scripts.js"></script>
 </body>
 
