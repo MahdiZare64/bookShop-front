@@ -109,6 +109,11 @@ $(document).ready(function () {
             isValid = false;
             validationMessage = "لطفا رمز عبور خود را به درستی وارد کنید.";
           }
+        } else if ($(this).hasClass("required-input")) {
+          if (!value.trim()) {
+            isValid = false;
+            validationMessage = $(this).attr("data-message");
+          }
         }
       });
 
@@ -126,7 +131,6 @@ $(document).ready(function () {
     final = final.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     $(priceDiv).text(final);
     $("#update-cart").removeClass("disabled");
-
   }
 
   $(".counter-wrapper input").change(function () {
@@ -256,13 +260,14 @@ $(document).ready(function () {
       const itemCount = Number($(this).find(".counter-wrapper input").val());
       totalPrice += itemPrice * itemCount;
 
-      const itemId = $(this).attr("data-id")
-      $(`.checkout-main .book-item[data-id='${itemId}'] .book-count`).text(itemCount)
+      const itemId = $(this).attr("data-id");
+      $(`.checkout-main .book-item[data-id='${itemId}'] .book-count`).text(
+        itemCount
+      );
     });
     $("#total-price").text(
       totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     );
-
   }
   $("#update-cart").click(updateCartList);
   $("#cart-form-btn").click(function () {
